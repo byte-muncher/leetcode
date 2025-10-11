@@ -1,0 +1,13 @@
+class Solution:
+    def majorityElement(self, nums):
+        """
+        Return the element that appears more than floor(len(nums)/2) times.
+        Boyer–Moore voting algorithm.
+        """
+        count = 0
+        candidate = None
+        for num in nums:
+            if count == 0:
+                candidate = num
+            count += 1 if num == candidate else -1
+        return candidate
