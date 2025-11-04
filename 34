@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        
+        int leftBound = lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+      
+        
+        int rightBoundNext = lower_bound(nums.begin(), nums.end(), target + 1) - nums.begin();
+      
+        
+        if (leftBound == rightBoundNext) {
+            return {-1, -1};
+        }
+      
+        
+        return {leftBound, rightBoundNext - 1};
+    }
+};
